@@ -23,7 +23,7 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                   <li class="nav-item">
-                      <a class="nav-link" href="index.html">Inicio</a>
+                      <a class="nav-link" href="portada.html">Inicio</a>
                   </li>
                   <li class="nav-item">
                       <a class="nav-link" href="categories.html">Categorías</a>
@@ -35,7 +35,14 @@
                       <a class="nav-link" href="sell.html">Vender</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="cart.html">Mi carrito</a>
+                      <div class="dropdown">
+                          <button class="btn btn-secondary dropdown-toggle" type="button" id="usuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="cart.html">Mi carrito</a>
+                            <a class="dropdown-item" href="index.html" id="cerrar">Cerrar sesión</a>
+                          </div>
+                        </div>
                   </li>
                   </ul>
               </div>
@@ -122,5 +129,6 @@
     </footer>
     <script src="js/vendor/jquery-3.4.1.min.js"></script>
     <script src="js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="js/init.js"></script>
   </body>
 </html>

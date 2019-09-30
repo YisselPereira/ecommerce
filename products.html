@@ -23,7 +23,7 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                   <li class="nav-item">
-                      <a class="nav-link" href="index.html">Inicio</a>
+                      <a class="nav-link" href="portada.html">Inicio</a>
                   </li>
                   <li class="nav-item">
                       <a class="nav-link" href="categories.html">Categorías</a>
@@ -35,14 +35,25 @@
                       <a class="nav-link" href="sell.html">Vender</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="cart.html">Mi carrito</a>
+                      <div class="dropdown">
+                          <button class="btn btn-secondary dropdown-toggle" type="button" id="usuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="cart.html">Mi carrito</a>
+                            <a class="dropdown-item" href="index.html" id="cerrar">Cerrar sesión</a>
+                          </div>
+                        </div>
                   </li>
                   </ul>
               </div>
           </div>
         </nav>
     <main role="main" class="pb-5">
-       <div class="container mt-5">
+        <div class="text-center p-4">
+            <h2>Productos</h2>
+            <p class="lead">Verás aquí todos los productos del sitio.</p>
+        </div>
+       <div class="container">
           <div class="row">
             <div class="col text-right">
               <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
