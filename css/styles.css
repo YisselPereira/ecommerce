@@ -134,3 +134,10 @@ a.custom-card:hover {
     text-align: center;
   }
 }
+.item-producto{
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.imgproduct{
+margin-left: 15%;
+}
