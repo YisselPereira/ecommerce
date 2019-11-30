@@ -67,9 +67,80 @@ document.addEventListener("DOMContentLoaded", function(e){
           event.preventDefault()
           event.stopPropagation()
         }
+        else {
+          if(paymentTypeSelected){
+            event.preventDefault()
+            event.stopPropagation()
+          getJSONData(CART_BUY_URL).then(function(response){
+            if(response.status === "ok"){
+              alert(response.data.msg);
+              location.href = location.href;
+            }
+          })
+        }
+        else {
+          event.preventDefault()
+          event.stopPropagation()
+          alert("Por favor, seleccione un método de pago");
+        }
+      }
         form.classList.add('was-validated')
-      }, false)
+      })
     })
+    document.getElementById("cerrarModal").addEventListener("click",function(e){
+      let metodoDePagoCredito = document.getElementById("creditCardPaymentRadio");
+      let metodoDePagoBanco   = document.getElementById("bankingRadio");
+      let tarjetaDeCredito    = document.getElementById("creditCardNumber");
+      let cuentaDeBanco       = document.getElementById("bankAccountNumber");
+  
+      let codigoSeguridad     = document.getElementById("creditCardSecurityCode");
+      let fechaVencimiento    = document.getElementById("dueDate");
+  
+      let infoMissing = true;
+  
+      //Quito las clases que marcan como inválidos
+      tarjetaDeCredito.classList.remove('is-invalid');
+      codigoSeguridad.classList.remove('is-invalid');
+      fechaVencimiento.classList.remove('is-invalid');
+  
+      //Se realizan los controles necesarios,
+      //Si es pago con tarjeta
+      if (metodoDePagoCredito.checked)
+      {
+          infoMissing = false;
+          //Validamos que la tarjeta no este vacia
+          if(tarjetaDeCredito.value === ""){
+              tarjetaDeCredito.classList.add('is-invalid');
+              infoMissing = true;        
+          }
+          if(codigoSeguridad.value === ""){
+            codigoSeguridad.classList.add('is-invalid');
+            infoMissing = true;        
+        }
+        if(fechaVencimiento.value === ""){
+          fechaVencimiento.classList.add('is-invalid');
+          infoMissing = true;        
+      }
+      }
+  
+      if(metodoDePagoBanco.checked){
+          infoMissing = false;
+          //Validamos que la cuenta de banco no este vacia
+          if(cuentaDeBanco.value === ""){
+              cuentaDeBanco.classList.add('is-invalid');
+              infoMissing = true;        
+          }
+      }
+  
+      if(infoMissing){
+          //Esto se debe realizar para prevenir que el formulario se envíe (comportamiento por defecto del navegador)
+          e.preventDefault();
+          e.stopPropagation();
+          return false;
+      }
+      paymentTypeSelected = true;
+  })
+
     document.getElementById("cant").addEventListener("change",function(){
       updateSubtotal();
       updateTotalCosts();
